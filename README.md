@@ -67,6 +67,10 @@ Issues
   does not configure properly even if you have it pre-configured in the
   environment.
 
+- For gfortran + MacOS/Linux a [modified gfortran.py
+  tool](https://github.com/dnwillia/SConsTests/blob/f57403dcdeafcf5eab5bb402500e9a107762b236/site_scons/site_tools/gfortran.py#L1)
+  is required.  Specific issues are highlighted below.
+
 - On MacOS the aliases for f77, f90, f95, etc... are not provided.  This seems
   to cause an issue with the `FORTRAN` construction variable which ends up
   defaulting to `f77` and that does not exist on MacOS.  The [modified
