@@ -7,4 +7,4 @@ venv
 *.pyc
 *.exe
 *.mod
-builds
+builds*
