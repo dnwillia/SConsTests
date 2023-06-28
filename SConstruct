@@ -5,6 +5,6 @@
 #   env["FORTRANMODDIR"] = "${TARGET.dir}"
 import os
 
-module = "TestSConscript"
-sconscript = os.path.join(module, "SConscript")
+module_name = "TestSConscript"
+sconscript = os.path.join(module_name, "SConscript")
 SConscript(sconscript)
