@@ -1,6 +1,3 @@
-# - This does not work out of the box with the gfortran tool.
-# - It works with the modified gfortran tool file in site_scons
-# - Tests that constructing a new environement and passing the tool list works
 tool_list = ["default", "gfortran"]
 env = Environment(tools = tool_list)
 f90_sources = Glob('*.f90')
