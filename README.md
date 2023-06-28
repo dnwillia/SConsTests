@@ -4,6 +4,19 @@ Testing SCons + Fortran
 This repo contains some basic examples which test if SCons is working properly
 for Fortran compilation.
 
+Prerequisites
+-------------
+
+A fortran compiler.  You would need GNU Fortran or Intel Fortran installed on your system.
+
+A virtual environment with SCons.  With your preferred Python interpreter do this:
+
+```
+python -m venv venv
+. ./venv/scripts/activate
+pip install scons
+```
+
 Fortran Code
 ------------
 
