@@ -1,0 +1,10 @@
+venv
+.venv
+.DS_Store
+*.o
+*.obj
+*.dblite
+*.pyc
+*.exe
+*.mod
+builds
