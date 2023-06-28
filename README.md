@@ -69,7 +69,7 @@ Issues
 
 - On MacOS the aliases for f77, f90, f95, etc... are not provided.  This seems
   to cause an issue with the `FORTRAN` construction variable which ends up
-  defaulting to `f77` which does not exist on MacOS.  The [modified
+  defaulting to `f77` and that does not exist on MacOS.  The [modified
   gfortran.py](https://github.com/dnwillia/SConsTests/blob/aa123b01eab21b2a108a1d703f6d506564c918ac/site_scons/site_tools/gfortran.py#L45)
   module in the `site_tools` area forces `FORTRAN=gfortran` to get it working.
   none of the code will build on MacOS.  Without the modifiations to the tool
