@@ -1,6 +1,9 @@
 # - This does not work out of the box with the gfortran tool
 # - It works with the modified gfortran tool file in site_scons
 # - Tests vanilla scons with no configuration except site_tools
+# - Main change to the tool is the addition of the FORTRAN construction variable which
+#   is not set properly if your system does not have f77/f90/f95 aliases, which is the
+#   case on gfortran installations for mac
 f90_sources = Glob('*.f90')
 for_sources = Glob('*.f')
 all_sources = f90_sources + for_sources
