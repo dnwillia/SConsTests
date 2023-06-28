@@ -63,6 +63,16 @@ different ways:
 Issues
 ------
 
+I tried everything here with the latest scons main branch checked out:
+
+```
+dnwillia@comp TestFlat % scons --version
+SCons by Steven Knight et al.:
+        SCons: v4.5.2.b3744e8862927899e3d0ebcb41297f9b4c142c63, Sun, 04 Jun 2023 15:36:48 -0700, by bdbaddog on M1Dog2021
+        SCons path: ['/Users/dnwillia/Developer/scons/SCons']
+Copyright (c) 2001 - 2023 The SCons Foundation
+```
+
 - None of this code builds _out of the box_ at all on Windows.  The ifort tool
   does not configure properly even if you have it pre-configured in the
   environment.
