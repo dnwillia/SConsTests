@@ -1,7 +1,7 @@
 # - This does not work out of the box with the gfortran tool
 # - It works with the modified gfortran tool file in site_scons
-# - Tests vanilla scons with no configuration except site_tools
+# - Tests if the Program target is robust to reorder of the source files
 f90_sources = Glob('*.f90')
 for_sources = Glob('*.f')
-all_sources = f90_sources + for_sources
+all_sources = for_sources + f90_sources
 Program(target='main_prog.exe', source=all_sources)
