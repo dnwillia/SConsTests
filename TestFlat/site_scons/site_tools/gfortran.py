@@ -56,7 +56,6 @@ def generate(env):
         env[f'INC{dialect}SUFFIX'] = ""
 
     env['FORTRANMODDIRPREFIX'] = "-J"
-    env["FORTRANMODDIR"] = "${TARGET.dir}"
 
 def exists(env):
     return env.Detect('gfortran')
