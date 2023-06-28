@@ -1,22 +1,15 @@
 import os
 import sys
 
-# This one is working
-module = "TestSConscript"
-build_dir = os.path.join(module, "builds1", sys.platform)
-sconscript = os.path.join(module, "SConscript")
+module_name = "TestSConscript"
+build_dir = os.path.join(module_name, "builds1", sys.platform)
+sconscript = os.path.join(module_name, "SConscript")
 SConscript(sconscript, variant_dir=build_dir)
 
-# This does not work at all.
-# Passing --warn=all produces warning: 
-# scons: warning: No dependency generated for file: module_two.mod (referenced by: 
-#   TestSConscript/module_one.f90) -- file not found
-# The main difference is the duplicate=False arg, that is causing the .mod file 
-# dependency to not get computed
-build_dir = os.path.join(module, "builds2", sys.platform)
-sconscript = os.path.join(module, "SConscript_gfortran2")
-SConscript(sconscript, variant_dir=build_dir, duplicate=False)
+build_dir = os.path.join(module_name, "builds2", sys.platform)
+sconscript = os.path.join(module_name, "SConscript_gfortran2")
+SConscript(sconscript, variant_dir=build_dir)
 
-# build_dir = os.path.join(module, "builds3", sys.platform)
-# sconscript = os.path.join(module, "SConscript_gfortran3")
-# SConscript(sconscript, variant_dir=build_dir, duplicate=False)
+build_dir = os.path.join(module_name, "builds3", sys.platform)
+sconscript = os.path.join(module_name, "SConscript_gfortran3")
+SConscript(sconscript, variant_dir=build_dir)

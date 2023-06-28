@@ -42,14 +42,16 @@ different ways:
 Issues
 ------
 
-- None of this code builds at all on Windows.  The ifort tool does not configure
-  properly even if you have it pre-configured in the environment.
+- None of this code builds _out of the box_ at all on Windows.  The ifort tool
+  does not configure properly even if you have it pre-configured in the
+  environment.
 
 - On MacOS the aliases for f77, f90, f95, etc... are not provided.  This seems
   to cause an issue with the `FORTRAN` construction variable which ends up
   defaulting to `f77` which does not exist.  Without the modified gfortran.py
-  module in the `site_tools` area none of the code will build on MacOS.  Without
-  the modifiations to the tool this is the error:
+  module in the `site_tools` area, which forces `FORTRAN=gfortran`, none of the
+  code will build on MacOS.  Without the modifiations to the tool this is the
+  error:
 
 ```
 dnwillia@comp TestFlat % scons -f SConstruct_gfortran1
@@ -64,8 +66,9 @@ dnwillia@comp TestFlat %
 ```
 
 - Building code with fortran modules does not seem to work properly when using
-  `variant_dir` and `duplicate=False`.  You get the build error below, note the
-  warning reporting that no dependency information is generated for module_two.
+  `variant_dir` and `duplicate=False`. See SConscriptVariant2. You get the build
+  error below, note the warning reporting that no dependency information is
+  generated for module_two.
 
 ```
 dnwillia@comp SConsTests % scons -f SConstructVariant --warn=all

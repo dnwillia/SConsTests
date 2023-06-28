@@ -1,6 +1,5 @@
-# This works with the site_scons modifications to the gfortran tool
 import os
 
-module = "TestSConscript"
-sconscript = os.path.join(module, "SConscript_gfortran3")
+module_name = "TestSConscript"
+sconscript = os.path.join(module_name, "SConscript_gfortran3")
 SConscript(sconscript)
