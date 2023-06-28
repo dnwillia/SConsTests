@@ -48,10 +48,11 @@ Issues
 
 - On MacOS the aliases for f77, f90, f95, etc... are not provided.  This seems
   to cause an issue with the `FORTRAN` construction variable which ends up
-  defaulting to `f77` which does not exist.  Without the modified gfortran.py
-  module in the `site_tools` area, which forces `FORTRAN=gfortran`, none of the
-  code will build on MacOS.  Without the modifiations to the tool this is the
-  error:
+  defaulting to `f77` which does not exist on MacOS.  The [modified
+  gfortran.py](https://github.com/dnwillia/SConsTests/blob/aa123b01eab21b2a108a1d703f6d506564c918ac/site_scons/site_tools/gfortran.py#L45)
+  module in the `site_tools` area forces `FORTRAN=gfortran` to get it working.
+  none of the code will build on MacOS.  Without the modifiations to the tool
+  this is the error:
 
 ```
 dnwillia@comp TestFlat % scons -f SConstruct_gfortran1
@@ -64,6 +65,28 @@ scons: *** [main_prog.o] Error 127
 scons: building terminated because of errors.
 dnwillia@comp TestFlat % 
 ```
+
+- Building code with fortran modules does not work right with `variant_dir`. You
+  need to set the location where fortran modules (.mod) get generated otherwise
+  they get stored into the same directory as the SConstruct.  Setting the module
+  output location to be the same as the object file target at this [line of
+  code](https://github.com/dnwillia/SConsTests/blob/aa123b01eab21b2a108a1d703f6d506564c918ac/site_scons/site_tools/gfortran.py#L59)
+  ensures the .mod files are produced into the `variant_dir`.  Passing --warn=all shows the issue:
+
+```
+dnwillia@comp SConsTests % scons -f SConstructVariant --warn=all
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+gfortran -o TestSConscript/builds1/darwin/module_two.o -c TestSConscript/builds1/darwin/module_two.f90
+
+scons: warning: Cannot find target TestSConscript/builds1/darwin/module_two.mod after building
+File "/Users/dnwillia/Developer/SConsTests/venv/bin/scons", line 8, in <module>
+gfortran -o TestSConscript/builds1/darwin/module_one.o -c TestSConscript/builds1/darwin/module_one.f90
+```
+
+The warning is generated because the .mod file is generated into the cwd where
+scons is called.
 
 - Building code with fortran modules does not seem to work properly when using
   `variant_dir` and `duplicate=False`. See SConscriptVariant2. You get the build
