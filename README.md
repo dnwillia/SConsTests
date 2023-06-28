@@ -63,10 +63,37 @@ different ways:
 Issues
 ------
 
-I tried everything here with the latest scons main branch checked out:
+I tried everything here with the scons repo checked and `pip install -e .` into
+the virtual environment: 
 
 ```
-dnwillia@comp TestFlat % scons --version
+dnwillia@comp scons % which python
+/Users/dnwillia/Developer/SConsTests/venvmain/bin/python
+dnwillia@comp scons % ls    
+CHANGES.txt             README-SF.rst*          SCons/                  lgtm.yml                runtest.py*             src/
+CONTRIBUTING.rst        README-local            SConstruct              packaging/              scripts/                template/
+LICENSE                 README-package.rst*     bench/                  pyproject.toml          setup.cfg               test/
+LICENSE-local           README.rst*             bin/                    requirements-dev.txt    setup.py                testing/
+MANIFEST.in             RELEASE.txt             bootstrap.py*           requirements-pkg.txt    shippable.yml           timings/
+NEWS.d/                 ReleaseConfig*          doc/                    requirements.txt        site_scons/
+dnwillia@comp scons % pip install -e .
+Obtaining file:///Users/dnwillia/Developer/scons
+  Installing build dependencies ... done
+  Checking if build backend supports build_editable ... done
+  Getting requirements to build editable ... done
+  Installing backend dependencies ... done
+  Preparing editable metadata (pyproject.toml) ... done
+Requirement already satisfied: setuptools in /Users/dnwillia/Developer/SConsTests/venvmain/lib/python3.11/site-packages (from SCons==4.5.2) (65.5.0)
+Building wheels for collected packages: SCons
+  Building editable for SCons (pyproject.toml) ... done
+  Created wheel for SCons: filename=SCons-4.5.2-0.editable-py3-none-any.whl size=6702 sha256=c976e86bd3f9adc8c8033b7e8aac87eb12c5708635a3e1205445aa51fd7e8448
+  Stored in directory: /private/var/folders/v_/6ksn5x2x6lzf3chrr8c9qrq80000gp/T/pip-ephem-wheel-cache-p1w1z26u/wheels/64/d0/41/73382133e4e90272845a07e0405b5aff6a4e818d1e0a48c056
+Successfully built SCons
+Installing collected packages: SCons
+Successfully installed SCons-4.5.2
+dnwillia@comp scons % which scons
+/Users/dnwillia/Developer/SConsTests/venvmain/bin/scons
+dnwillia@comp scons % scons --version
 SCons by Steven Knight et al.:
         SCons: v4.5.2.b3744e8862927899e3d0ebcb41297f9b4c142c63, Sun, 04 Jun 2023 15:36:48 -0700, by bdbaddog on M1Dog2021
         SCons path: ['/Users/dnwillia/Developer/scons/SCons']
