@@ -10,12 +10,20 @@ Prerequisites
 A fortran compiler.  You would need GNU Fortran or Intel Fortran installed on your system.
 
 A virtual environment with SCons.  With your preferred Python interpreter do this:
-
+Linux or MacOS
 ```
 python -m venv venv
-. ./venv/scripts/activate
+. ./venv/bin/activate
 pip install scons
 ```
+
+Windows
+```
+python -m venv venv
+.\venv\Scripts\activate
+pip install scons
+```
+
 
 Fortran Code
 ------------
