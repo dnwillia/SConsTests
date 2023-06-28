@@ -4,7 +4,7 @@ import sys
 # This one is working
 module = "TestSConscript"
 build_dir = os.path.join(module, "builds1", sys.platform)
-sconscript = os.path.join(module, "SConscript_gfortran1")
+sconscript = os.path.join(module, "SConscript")
 SConscript(sconscript, variant_dir=build_dir)
 
 # This does not work at all.

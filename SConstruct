@@ -5,8 +5,6 @@
 #   env["FORTRANMODDIR"] = "${TARGET.dir}"
 import os
 
-env = DefaultEnvironment()
-
 module = "TestSConscript"
-sconscript = os.path.join(module, "SConscript_gfortran1")
+sconscript = os.path.join(module, "SConscript")
 SConscript(sconscript)
