@@ -113,7 +113,7 @@ Copyright (c) 2001 - 2023 The SCons Foundation
   defaulting to `f77` and that does not exist on MacOS.  The [modified
   gfortran.py](https://github.com/dnwillia/SConsTests/blob/aa123b01eab21b2a108a1d703f6d506564c918ac/site_scons/site_tools/gfortran.py#L45)
   module in the `site_tools` area forces `FORTRAN=gfortran` to get it working.
-  none of the code will build on MacOS.  Without the modifiations to the tool
+  None of the code will build on MacOS and without the modifiations to the tool
   this is the error:
 
 ```
