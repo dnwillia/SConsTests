@@ -63,7 +63,7 @@ different ways:
 Issues
 ------
 
-I tried everything here with the scons repo checked and `pip install -e .` into
+I tried everything here with the scons repo checked out locally and ran `pip install -e .` into
 the virtual environment: 
 
 ```
