@@ -70,7 +70,8 @@ is that:
 - None of this code builds _out of the box_ at all on Windows.  The ifort tool
   does not configure properly even if you have it pre-configured in the
   environment.
-- gfortran is configured by default, and is not located even if you have it in
-  the path when calling `scons` on the command line.
-- Explicitly put it into the Environment path solves that but then the Program's
-  do not link.
+- The gfortran tool is configured on Windows by default, but the gfortran exe is
+  not located even if you have it in the path when calling `scons` on the command
+  line.
+- Explicitly prepending the gfortran location into the build Environment path solves
+  that but then the Program's do not link.
