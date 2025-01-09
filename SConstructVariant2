@@ -2,6 +2,16 @@
 import os
 import sys
 
+env = DefaultEnvironment()
+
+# SCons configures gfortran by default, tell it where it is.
+if sys.platform == "win32":
+    env.PrependENVPath(
+        "PATH", os.path.join("C:", os.path.sep, "ANSYSDev", "MinGW", "bin")
+    )
+
+env.Export("env")
+
 module_name = "TestSConscript"
 build_dir = os.path.join(module_name, "builds12", sys.platform)
 sconscript = os.path.join(module_name, "SConscript")

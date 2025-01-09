@@ -1,4 +1,6 @@
-f90_sources = Glob('*.f90')
-for_sources = Glob('*.f')
+Import("env")
+
+f90_sources = env.Glob('*.f90')
+for_sources = env.Glob('*.f')
 all_sources = for_sources + f90_sources
-Program(target='main_prog.exe', source=all_sources)
+env.Program(target='main_prog.exe', source=all_sources)

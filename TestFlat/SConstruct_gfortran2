@@ -1,5 +1,15 @@
+import os
+import sys
+
 tool_list = ["default", "gfortran"]
 env = Environment(tools = tool_list)
+
+# SCons configures gfortran by default, tell it where it is.
+if sys.platform == "win32":
+    env.PrependENVPath(
+        "PATH", os.path.join("C:", os.path.sep, "ANSYSDev", "MinGW", "bin")
+    )
+
 f90_sources = Glob('*.f90')
 for_sources = Glob('*.f')
 all_sources = f90_sources + for_sources
